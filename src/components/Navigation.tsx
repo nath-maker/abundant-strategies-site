@@ -4,6 +4,14 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+const navLinks = [
+  { href: '/about', label: 'About' },
+  { href: '/work-with-me', label: 'Work With Me' },
+  { href: '/latelier', label: "L'atelier" },
+  { href: '/testimonials', label: 'Testimonials' },
+  { href: '/contact', label: 'Contact' },
+];
+
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -17,107 +25,100 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const isActive = (path: string) => pathname === path;
+  // Close menu on route change
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled 
-        ? 'bg-background/95 backdrop-blur-sm border-b border-border/50 shadow-sm' 
-        : 'bg-transparent'
-    }`}>
-      <div className="mx-auto max-w-6xl px-6 md:px-12 lg:px-24">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo / Name */}
-          <Link 
-            href="/" 
-            className="font-display text-lg font-semibold text-ink hover:text-stone transition-colors"
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'bg-white/95 backdrop-blur-sm shadow-sm'
+          : 'bg-transparent'
+      }`}
+    >
+      <nav className="max-w-6xl mx-auto px-6 py-4">
+        <div className="flex items-center justify-between">
+          {/* Logo */}
+          <Link
+            href="/"
+            className="text-lg tracking-tight text-[--ink] hover:text-[--slate] transition-colors"
           >
-            Nathalie Salles
+            Abundant Strategies
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link 
-              href="/about" 
-              className={`font-display text-sm font-medium transition-colors ${
-                isActive('/about') ? 'text-ink' : 'text-slate hover:text-ink'
-              }`}
-            >
-              About
-            </Link>
-            <Link 
-              href="/latelier" 
-              className={`font-display text-sm font-medium transition-colors ${
-                isActive('/latelier') ? 'text-ink' : 'text-slate hover:text-ink'
-              }`}
-            >
-              L'atelier
-            </Link>
-            <Link 
-              href="/contact" 
-              className="font-display text-sm font-medium bg-ink text-background px-5 py-2 hover:bg-stone transition-colors"
-            >
-              Let's Talk
-            </Link>
+          <div className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`text-sm transition-colors ${
+                  pathname === link.href
+                    ? 'text-[--ink]'
+                    : 'text-[--stone] hover:text-[--ink]'
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-ink"
+            className="md:hidden p-2 -mr-2 text-[--ink]"
             aria-label="Toggle menu"
           >
-            <svg 
-              className="w-6 h-6 transition-transform duration-200" 
-              fill="none" 
-              stroke="currentColor" 
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
               viewBox="0 0 24 24"
-              style={{ transform: isOpen ? 'rotate(90deg)' : 'rotate(0)' }}
             >
               {isOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               )}
             </svg>
           </button>
         </div>
 
         {/* Mobile Navigation */}
-        <div className={`md:hidden overflow-hidden transition-all duration-300 ${
-          isOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
-        }`}>
-          <div className="py-4 border-t border-border/50">
-            <div className="flex flex-col space-y-4">
-              <Link 
-                href="/about" 
-                className={`font-display text-sm font-medium transition-colors ${
-                  isActive('/about') ? 'text-ink' : 'text-slate hover:text-ink'
+        <div
+          className={`md:hidden overflow-hidden transition-all duration-300 ease-out ${
+            isOpen ? 'max-h-64 opacity-100 mt-4' : 'max-h-0 opacity-0'
+          }`}
+        >
+          <div className="py-4 space-y-4 border-t border-[--cloud]">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`block text-sm transition-colors ${
+                  pathname === link.href
+                    ? 'text-[--ink]'
+                    : 'text-[--stone] hover:text-[--ink]'
                 }`}
-                onClick={() => setIsOpen(false)}
               >
-                About
+                {link.label}
               </Link>
-              <Link 
-                href="/latelier" 
-                className={`font-display text-sm font-medium transition-colors ${
-                  isActive('/latelier') ? 'text-ink' : 'text-slate hover:text-ink'
-                }`}
-                onClick={() => setIsOpen(false)}
-              >
-                L'atelier
-              </Link>
-              <Link 
-                href="/contact" 
-                className="font-display text-sm font-medium text-ink"
-                onClick={() => setIsOpen(false)}
-              >
-                Let's Talk
-              </Link>
-            </div>
+            ))}
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 }

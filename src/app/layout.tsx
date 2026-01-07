@@ -1,17 +1,24 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
-import "./globals.css";
 import Navigation from "@/components/Navigation";
+import "./globals.css";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
-  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Nathalie Salles-Olivier | Advisor to CEOs & AI Builder",
-  description: "Trusted advisor to CEOs, VPs, and C-suite executives at Shell, Meta, Google, NASA. 15+ years leading organizational transformations. Harvard keynote speaker. Production AI builder. For leaders ready to think differently about AI.",
+  title: "Abundant Strategies | Nathalie Salles",
+  description: "Executive coaching and AI strategy for leaders navigating transformation. 15+ years developing leaders at Meta, Google, Shell. Now building AI systems.",
+  keywords: ["executive coaching", "AI strategy", "leadership development", "AI transformation", "HR technology"],
+  authors: [{ name: "Nathalie Salles" }],
+  openGraph: {
+    title: "Abundant Strategies | Nathalie Salles",
+    description: "Executive coaching and AI strategy for leaders navigating transformation.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

@@ -5,15 +5,12 @@
   --ink: #333333;
   --stone: #555555;
   --slate: #666666;
-  --mist: #767676;
-  --fog: #888888;
-  --cloud: #999999;
+  --mist: #888888;
+  --cloud: #f5f5f5;
+  --paper: #fafafa;
 
-  /* Surface colors */
+  /* Surfaces */
   --background: #ffffff;
-  --whisper: #fafafa;
-  --border: #e0e0e0;
-  --light-border: #e5e5e5;
 }
 
 @theme inline {
@@ -21,11 +18,9 @@
   --color-stone: var(--stone);
   --color-slate: var(--slate);
   --color-mist: var(--mist);
-  --color-fog: var(--fog);
   --color-cloud: var(--cloud);
+  --color-paper: var(--paper);
   --color-background: var(--background);
-  --color-whisper: var(--whisper);
-  --color-border: var(--border);
 }
 
 /* Base styles */
@@ -38,150 +33,90 @@ body {
   color: var(--ink);
   font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Typography - Montserrat for scanning */
-.font-display {
-  font-family: var(--font-montserrat), -apple-system, BlinkMacSystemFont, sans-serif;
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+  letter-spacing: -0.01em;
 }
 
-/* Utility classes */
-.text-ink { color: var(--ink); }
-.text-stone { color: var(--stone); }
-.text-slate { color: var(--slate); }
-.text-mist { color: var(--mist); }
-.text-fog { color: var(--fog); }
-.text-cloud { color: var(--cloud); }
-
-.bg-whisper { background-color: var(--whisper); }
-.border-border { border-color: var(--border); }
-
-/* ========================================
-   ANIMATIONS & POLISH
-   ======================================== */
-
-/* Fade in on page load */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+p {
+  letter-spacing: 0.005em;
 }
 
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Links - subtle underline on hover */
+a {
+  transition: color 0.2s ease;
 }
 
-@keyframes fadeInScale {
-  from { opacity: 0; transform: scale(0.98); }
-  to { opacity: 1; transform: scale(1); }
+/* Buttons - quiet lift effect */
+button,
+[role="button"] {
+  transition: all 0.2s ease;
 }
 
-/* Apply to sections */
-section {
-  animation: fadeIn 0.6s ease-out forwards;
+button:hover:not(:disabled),
+[role="button"]:hover:not(:disabled) {
+  transform: translateY(-1px);
 }
 
-/* Stagger effect for cards and grid items */
-.grid > * {
-  animation: fadeInUp 0.5s ease-out forwards;
-  opacity: 0;
+button:active:not(:disabled),
+[role="button"]:active:not(:disabled) {
+  transform: translateY(0);
 }
 
-.grid > *:nth-child(1) { animation-delay: 0.1s; }
-.grid > *:nth-child(2) { animation-delay: 0.2s; }
-.grid > *:nth-child(3) { animation-delay: 0.3s; }
-.grid > *:nth-child(4) { animation-delay: 0.4s; }
-.grid > *:nth-child(5) { animation-delay: 0.5s; }
-.grid > *:nth-child(6) { animation-delay: 0.6s; }
+/* Form elements */
+input,
+textarea,
+select {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
 
-/* Blockquote styling */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--ink);
+}
+
+/* Blockquotes */
 blockquote {
-  animation: fadeInScale 0.6s ease-out forwards;
   position: relative;
 }
 
 blockquote::before {
   content: '"';
   position: absolute;
-  top: -20px;
-  left: -10px;
+  left: -0.5em;
+  top: -0.2em;
+  font-size: 3em;
+  color: var(--cloud);
   font-family: Georgia, serif;
-  font-size: 4rem;
-  color: var(--border);
   line-height: 1;
   pointer-events: none;
 }
 
-/* Link hover effects */
-a {
-  transition: all 0.2s ease;
-}
-
-/* Button hover lift effect */
-a[class*="bg-ink"]:hover,
-button[class*="bg-ink"]:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(51, 51, 51, 0.15);
-}
-
-/* Image placeholder styling */
-[class*="aspect-"] {
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-[class*="aspect-"]:hover {
-  transform: scale(1.01);
-}
-
-/* Form focus states */
-input:focus,
-textarea:focus,
-select:focus {
-  outline: none;
-}
-
-input::placeholder,
-textarea::placeholder {
-  color: var(--cloud);
-  transition: opacity 0.2s ease;
-}
-
-input:focus::placeholder,
-textarea:focus::placeholder {
-  opacity: 0.5;
-}
-
-/* Selection styling */
+/* Selection */
 ::selection {
   background: var(--ink);
   color: var(--background);
 }
 
-/* Scrollbar styling (webkit) */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
 }
 
-::-webkit-scrollbar-track {
-  background: var(--whisper);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--cloud);
-}
-
-/* ========================================
-   RESPONSIVE POLISH
-   ======================================== */
-
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   *,
   *::before,
   *::after {
@@ -191,11 +126,36 @@ textarea:focus::placeholder {
   }
 }
 
-/* Mobile touch targets */
-@media (max-width: 768px) {
-  a, button {
-    min-height: 44px;
-    display: inline-flex;
-    align-items: center;
-  }
+/* Custom scrollbar - subtle */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--mist);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--slate);
+}
+
+/* Focus visible - accessibility */
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+/* Utility - hide scrollbar but keep functionality */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }
