@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+:root {
+  /* Text colors - from design spec */
+  --ink: #333333;
+  --stone: #555555;
+  --slate: #666666;
+  --mist: #767676;
+  --fog: #888888;
+  --cloud: #999999;
+
+  /* Surface colors */
+  --background: #ffffff;
+  --whisper: #fafafa;
+  --border: #e0e0e0;
+  --light-border: #e5e5e5;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-stone: var(--stone);
+  --color-slate: var(--slate);
+  --color-mist: var(--mist);
+  --color-fog: var(--fog);
+  --color-cloud: var(--cloud);
+  --color-background: var(--background);
+  --color-whisper: var(--whisper);
+  --color-border: var(--border);
+}
+
+body {
+  background: var(--background);
+  color: var(--ink);
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.7;
+}
+
+/* Typography - Montserrat for scanning */
+.font-display {
+  font-family: var(--font-montserrat), -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Utility classes */
+.text-ink { color: var(--ink); }
+.text-stone { color: var(--stone); }
+.text-slate { color: var(--slate); }
+.text-mist { color: var(--mist); }
+.text-fog { color: var(--fog); }
+.text-cloud { color: var(--cloud); }
+
+.bg-whisper { background-color: var(--whisper); }
+.border-border { border-color: var(--border); }
