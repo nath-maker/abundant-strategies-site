@@ -1,125 +1,111 @@
-import type { Metadata } from "next";
+import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "L'atelier | AI HR Team",
-  description: "Six specialized AI agents that collaborate like a senior HR leadership team. Strategic HR guidance with ethics built into the architecture.",
+export const metadata = {
+  title: "L'atelier: AI HR Team | Abundant Strategies",
+  description: "Six AI agents that work together like a senior HR leadership team. Strategic guidance for complex HR challenges.",
 };
 
-export default function LAtelier() {
-  const agents = [
-    {
-      name: "NATH",
-      role: "CHRO & Orchestrator",
-      description: "Strategic leader and ethical compass. Synthesizes perspectives from all agents into actionable guidance.",
-      color: "bg-ink",
-    },
-    {
-      name: "LEX",
-      role: "Employment Law",
-      description: "Legal expertise on termination, FMLA, ADA, discrimination, and documentation. Your compliance guardian.",
-      color: "bg-stone",
-    },
-    {
-      name: "TALOS",
-      role: "Talent Acquisition", 
-      description: "Recruiting expert covering job design, interviewing, offers, and onboarding strategy.",
-      color: "bg-slate",
-    },
-    {
-      name: "LADY A",
-      role: "Organizational Development",
-      description: "Culture, team dynamics, change management. Always asks: who is this structure serving?",
-      color: "bg-mist",
-    },
-    {
-      name: "CADENCE",
-      role: "Performance Management",
-      description: "Performance conversations, feedback, PIPs, goals. Coaches managers through difficult conversations.",
-      color: "bg-fog",
-    },
-    {
-      name: "HR OPS",
-      role: "Process & Compliance",
-      description: "Policies, procedures, documentation workflows. The operational backbone.",
-      color: "bg-cloud",
-    },
-  ];
+const agents = [
+  {
+    name: "NATH",
+    role: "CHRO & Orchestrator",
+    description: "Strategic leader, ethical compass, final synthesizer. Sets direction and integrates perspectives.",
+    color: "bg-[--ink]",
+  },
+  {
+    name: "LEX",
+    role: "Employment Law",
+    description: "Legal expertise. Termination, FMLA, ADA, discrimination, documentation.",
+    color: "bg-emerald-600",
+  },
+  {
+    name: "TALOS",
+    role: "Talent Acquisition",
+    description: "Recruiting expert. Job design, interviewing, offers, onboarding.",
+    color: "bg-blue-600",
+  },
+  {
+    name: "LADY A",
+    role: "Organizational Development",
+    description: "Culture, team dynamics, change management. Asks 'who is this serving?'",
+    color: "bg-purple-600",
+  },
+  {
+    name: "CADENCE",
+    role: "Performance Management",
+    description: "Performance conversations, feedback, PIPs, goals. Coaches on difficult conversations.",
+    color: "bg-amber-600",
+  },
+  {
+    name: "HR OPS",
+    role: "Process & Compliance",
+    description: "Policies, procedures, documentation workflows. Keeps things running.",
+    color: "bg-slate-600",
+  },
+];
 
+export default function Latelier() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen">
       {/* Hero */}
-      <section className="px-6 py-16 md:px-12 md:py-24 lg:px-24">
-        <div className="mx-auto max-w-4xl">
-          <p className="font-display text-sm font-medium uppercase tracking-widest text-cloud">
-            L'atelier
+      <section className="px-6 py-24 md:py-32">
+        <div className="max-w-4xl mx-auto">
+          <p className="text-sm tracking-widest text-[--mist] uppercase mb-6">
+            L&apos;atelier
           </p>
-          <h1 className="mt-4 font-display text-3xl font-semibold leading-tight text-ink md:text-4xl lg:text-5xl">
-            Your AI HR leadership team, ready to think with you.
+          <h1 className="text-4xl md:text-5xl font-light tracking-tight text-[--ink] mb-8">
+            Your AI HR team.
+            <span className="block mt-2 text-[--slate]">Ready to think with you.</span>
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate">
-            Not a chatbot. Not a search engine. Six specialized AI agents that collaborate like a senior HR team — bringing strategic expertise to your toughest people problems.
+          <p className="text-xl text-[--stone] leading-relaxed max-w-2xl">
+            Six specialized AI agents that collaborate like a senior HR
+            leadership team. Strategic guidance for complex challenges,
+            with equity and ethics built in.
           </p>
         </div>
       </section>
 
-      {/* Image Placeholder - Product Screenshot */}
-      <section className="px-6 md:px-12 lg:px-24">
-        <div className="mx-auto max-w-5xl">
-          <div className="aspect-video bg-whisper border border-border rounded-lg flex items-center justify-center">
-            <div className="text-center">
-              <p className="font-display text-sm uppercase tracking-widest text-cloud">[ Product Screenshot ]</p>
-              <p className="mt-2 text-sm text-mist">L'atelier interface showing agent collaboration</p>
+      {/* The Problem */}
+      <section className="px-6 py-16 bg-[--cloud]">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-2xl font-light text-[--ink] mb-8">
+            The problem we solve.
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div>
+              <p className="text-[--slate] leading-relaxed">
+                HR teams of 1-3 people drowning in operations with no time for strategy.
+              </p>
+            </div>
+            <div>
+              <p className="text-[--slate] leading-relaxed">
+                Leaders making HR decisions without the expertise to avoid landmines.
+              </p>
+            </div>
+            <div>
+              <p className="text-[--slate] leading-relaxed">
+                Companies scaling fast with no HR leadership bench to draw from.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* The Problem */}
-      <section className="px-6 py-16 md:px-12 md:py-20 lg:px-24">
-        <div className="mx-auto max-w-3xl">
-          <h2 className="font-display text-sm font-semibold uppercase tracking-widest text-mist">
-            The Problem
-          </h2>
-          <div className="mt-8 space-y-6 text-slate">
-            <p className="text-xl leading-relaxed text-ink">
-              You're an HR team of one — or three — drowning in operational demands while strategic questions pile up.
-            </p>
-            <p className="leading-relaxed">
-              Should we restructure the performance review process? How do we handle this tricky termination? What's our approach to AI adoption policy? These questions deserve senior-level thinking. But who has time?
-            </p>
-            <p className="leading-relaxed">
-              Most AI tools give you generic answers. L'atelier gives you a team.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* The Agents */}
-      <section className="bg-whisper px-6 py-16 md:px-12 md:py-20 lg:px-24">
-        <div className="mx-auto max-w-5xl">
-          <h2 className="font-display text-sm font-semibold uppercase tracking-widest text-mist">
-            Meet the Team
+      <section className="px-6 py-24">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-sm tracking-widest text-[--mist] uppercase mb-12">
+            The Team
           </h2>
-          <p className="mt-4 max-w-2xl text-slate">
-            Six agents. Six perspectives. One collaborative synthesis.
-          </p>
-
-          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {agents.map((agent) => (
-              <div 
-                key={agent.name}
-                className="bg-background p-6 border border-border hover:border-slate transition-colors"
-              >
-                <div className="flex items-center gap-3">
-                  <div className={`w-3 h-3 rounded-full ${agent.color}`} />
-                  <h3 className="font-display text-lg font-semibold text-ink">
-                    {agent.name}
-                  </h3>
+              <div key={agent.name} className="p-6 border border-[--cloud]">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className={`w-3 h-3 rounded-full ${agent.color}`}></div>
+                  <h3 className="text-lg font-medium text-[--ink]">{agent.name}</h3>
                 </div>
-                <p className="mt-1 font-display text-xs uppercase tracking-wider text-cloud">
-                  {agent.role}
-                </p>
-                <p className="mt-4 text-sm leading-relaxed text-slate">
+                <p className="text-sm text-[--mist] mb-3">{agent.role}</p>
+                <p className="text-sm text-[--stone] leading-relaxed">
                   {agent.description}
                 </p>
               </div>
@@ -129,94 +115,91 @@ export default function LAtelier() {
       </section>
 
       {/* How It Works */}
-      <section className="px-6 py-16 md:px-12 md:py-20 lg:px-24">
-        <div className="mx-auto max-w-3xl">
-          <h2 className="font-display text-sm font-semibold uppercase tracking-widest text-mist">
+      <section className="px-6 py-24 bg-[--paper]">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-sm tracking-widest text-[--mist] uppercase mb-12">
             How It Works
           </h2>
-          
-          <div className="mt-12 space-y-10">
-            <div className="flex gap-6">
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-ink text-background flex items-center justify-center font-display text-sm font-semibold">
-                1
-              </div>
-              <div>
-                <h3 className="font-display text-lg font-semibold text-ink">You bring a real problem</h3>
-                <p className="mt-2 text-slate">
-                  "We need to let go of someone on a PIP who's claiming discrimination." "Our org structure isn't serving the new strategy." "How do we roll out AI tools without creating fear?"
-                </p>
-              </div>
+          <div className="grid md:grid-cols-3 gap-12">
+            <div>
+              <div className="text-4xl font-light text-[--mist] mb-4">01</div>
+              <h3 className="text-lg font-medium text-[--ink] mb-3">
+                Describe your situation
+              </h3>
+              <p className="text-[--stone] text-sm leading-relaxed">
+                Tell us what you&apos;re dealing with. Performance issue?
+                Termination question? Team conflict? Org design challenge?
+              </p>
             </div>
-
-            <div className="flex gap-6">
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-ink text-background flex items-center justify-center font-display text-sm font-semibold">
-                2
-              </div>
-              <div>
-                <h3 className="font-display text-lg font-semibold text-ink">Agents self-organize around it</h3>
-                <p className="mt-2 text-slate">
-                  No fixed hierarchy. Lex surfaces legal considerations. Lady A thinks about culture implications. Cadence considers the performance angle. They see each other's contributions and build on them.
-                </p>
-              </div>
+            <div>
+              <div className="text-4xl font-light text-[--mist] mb-4">02</div>
+              <h3 className="text-lg font-medium text-[--ink] mb-3">
+                Agents collaborate
+              </h3>
+              <p className="text-[--stone] text-sm leading-relaxed">
+                Multiple agents engage with your question from their areas
+                of expertise. They see each other&apos;s perspectives and build
+                on them.
+              </p>
             </div>
-
-            <div className="flex gap-6">
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-ink text-background flex items-center justify-center font-display text-sm font-semibold">
-                3
-              </div>
-              <div>
-                <h3 className="font-display text-lg font-semibold text-ink">Nath synthesizes</h3>
-                <p className="mt-2 text-slate">
-                  You see multiple perspectives, including disagreements — because real HR decisions involve tradeoffs. Nath brings it together into actionable guidance while surfacing what you need to decide.
-                </p>
-              </div>
+            <div>
+              <div className="text-4xl font-light text-[--mist] mb-4">03</div>
+              <h3 className="text-lg font-medium text-[--ink] mb-3">
+                Integrated guidance
+              </h3>
+              <p className="text-[--stone] text-sm leading-relaxed">
+                NATH synthesizes the perspectives into actionable guidance.
+                You see the thinking, not just the conclusion.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* The Difference */}
-      <section className="bg-whisper px-6 py-16 md:px-12 md:py-20 lg:px-24">
-        <div className="mx-auto max-w-3xl">
-          <h2 className="font-display text-2xl font-semibold text-ink md:text-3xl">
-            Ethics are architectural, not afterthought.
+      <section className="px-6 py-24">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-2xl font-light text-[--ink] mb-12">
+            What makes this different.
           </h2>
-          
-          <div className="mt-8 space-y-6 text-slate">
-            <p className="leading-relaxed">
-              L'atelier isn't just "avoid harm" — it's built to actively surface bias and promote equity.
-            </p>
-            <p className="leading-relaxed">
-              Every agent is prompted to notice when recommendations might disproportionately impact certain groups. You'll see comments like: <em className="text-ink">"This approach might create disparate impact on X. Here's an alternative that achieves the same goal more equitably."</em>
-            </p>
-            <p className="leading-relaxed">
-              Human-in-the-loop always. L'atelier advises. You decide.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Built By */}
-      <section className="px-6 py-16 md:px-12 md:py-20 lg:px-24">
-        <div className="mx-auto max-w-3xl">
-          <h2 className="font-display text-sm font-semibold uppercase tracking-widest text-mist">
-            Built By
-          </h2>
-          
-          {/* Image Placeholder - Nathalie */}
-          <div className="mt-8 flex gap-8 items-start">
-            <div className="flex-shrink-0 w-24 h-24 bg-whisper border border-border rounded-full flex items-center justify-center">
-              <p className="font-display text-xs text-cloud">[ Photo ]</p>
+          <div className="grid md:grid-cols-2 gap-12">
+            <div>
+              <h3 className="text-lg font-medium text-[--ink] mb-3">
+                It&apos;s a team, not a chatbot
+              </h3>
+              <p className="text-[--stone] leading-relaxed">
+                Six specialized agents that actually collaborate. Different
+                perspectives surface naturally because they have different expertise.
+              </p>
             </div>
             <div>
-              <p className="text-lg leading-relaxed text-ink">
-                L'atelier encodes 15+ years of HR leadership into AI architecture.
+              <h3 className="text-lg font-medium text-[--ink] mb-3">
+                Strategy, not transactions
+              </h3>
+              <p className="text-[--stone] leading-relaxed">
+                Built for complex questions that require thinking, not
+                simple lookups. The kind of problems you&apos;d bring to a
+                senior HR leader.
               </p>
-              <p className="mt-4 text-slate">
-                I've led HR at scale (Meta, 30K→71K employees), coached thousands of executives, and now I build AI systems. L'atelier isn't a generic chatbot trained on HR blogs — it's my thinking, my frameworks, my approach to people problems.
+            </div>
+            <div>
+              <h3 className="text-lg font-medium text-[--ink] mb-3">
+                Ethics are architectural
+              </h3>
+              <p className="text-[--stone] leading-relaxed">
+                Every agent is prompted to notice when recommendations might
+                disproportionately impact certain groups. Bias awareness is
+                built in, not bolted on.
               </p>
-              <p className="mt-4 font-display text-sm font-medium text-ink">
-                — Nathalie Salles-Olivier
+            </div>
+            <div>
+              <h3 className="text-lg font-medium text-[--ink] mb-3">
+                Built by an HR leader
+              </h3>
+              <p className="text-[--stone] leading-relaxed">
+                Not built by engineers guessing what HR needs. Built by
+                someone who developed leaders at Meta, Google, and Shell
+                for 15 years.
               </p>
             </div>
           </div>
@@ -224,20 +207,21 @@ export default function LAtelier() {
       </section>
 
       {/* CTA */}
-      <section className="bg-ink px-6 py-20 md:px-12 lg:px-24">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-2xl font-semibold text-background md:text-3xl">
-            Ready to meet your AI HR team?
+      <section className="px-6 py-24 bg-[--ink] text-white">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-3xl font-light mb-6">
+            Interested in early access?
           </h2>
-          <p className="mt-6 text-fog">
-            L'atelier is currently in early access. Request a demo to see how six AI agents can transform your HR thinking.
+          <p className="text-white/70 mb-10">
+            L&apos;atelier is currently in limited availability.
+            Reach out to learn more about how it might fit your situation.
           </p>
-          <a
-            href="mailto:hello@abundantstrategies.ai?subject=L'atelier Demo Request"
-            className="mt-10 inline-block bg-background px-8 py-4 font-display text-sm font-medium tracking-wide text-ink transition-colors hover:bg-whisper"
+          <Link
+            href="/contact"
+            className="inline-block px-8 py-4 bg-white text-[--ink] text-sm tracking-wide hover:bg-[--cloud] transition-colors"
           >
-            Request Early Access
-          </a>
+            Request Access
+          </Link>
         </div>
       </section>
     </div>
