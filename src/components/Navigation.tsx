@@ -1,13 +1,30 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const isActive = (path: string) => pathname === path;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border/50">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      scrolled 
+        ? 'bg-background/95 backdrop-blur-sm border-b border-border/50 shadow-sm' 
+        : 'bg-transparent'
+    }`}>
       <div className="mx-auto max-w-6xl px-6 md:px-12 lg:px-24">
         <div className="flex items-center justify-between h-16">
           {/* Logo / Name */}
@@ -22,18 +39,22 @@ export default function Navigation() {
           <div className="hidden md:flex items-center space-x-8">
             <Link 
               href="/about" 
-              className="font-display text-sm font-medium text-slate hover:text-ink transition-colors"
+              className={`font-display text-sm font-medium transition-colors ${
+                isActive('/about') ? 'text-ink' : 'text-slate hover:text-ink'
+              }`}
             >
               About
             </Link>
             <Link 
               href="/latelier" 
-              className="font-display text-sm font-medium text-slate hover:text-ink transition-colors"
+              className={`font-display text-sm font-medium transition-colors ${
+                isActive('/latelier') ? 'text-ink' : 'text-slate hover:text-ink'
+              }`}
             >
               L'atelier
             </Link>
             <Link 
-              href="#contact" 
+              href="/contact" 
               className="font-display text-sm font-medium bg-ink text-background px-5 py-2 hover:bg-stone transition-colors"
             >
               Let's Talk
@@ -47,10 +68,11 @@ export default function Navigation() {
             aria-label="Toggle menu"
           >
             <svg 
-              className="w-6 h-6" 
+              className="w-6 h-6 transition-transform duration-200" 
               fill="none" 
               stroke="currentColor" 
               viewBox="0 0 24 24"
+              style={{ transform: isOpen ? 'rotate(90deg)' : 'rotate(0)' }}
             >
               {isOpen ? (
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -62,25 +84,31 @@ export default function Navigation() {
         </div>
 
         {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden py-4 border-t border-border/50">
+        <div className={`md:hidden overflow-hidden transition-all duration-300 ${
+          isOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
+        }`}>
+          <div className="py-4 border-t border-border/50">
             <div className="flex flex-col space-y-4">
               <Link 
                 href="/about" 
-                className="font-display text-sm font-medium text-slate hover:text-ink transition-colors"
+                className={`font-display text-sm font-medium transition-colors ${
+                  isActive('/about') ? 'text-ink' : 'text-slate hover:text-ink'
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 About
               </Link>
               <Link 
                 href="/latelier" 
-                className="font-display text-sm font-medium text-slate hover:text-ink transition-colors"
+                className={`font-display text-sm font-medium transition-colors ${
+                  isActive('/latelier') ? 'text-ink' : 'text-slate hover:text-ink'
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 L'atelier
               </Link>
               <Link 
-                href="#contact" 
+                href="/contact" 
                 className="font-display text-sm font-medium text-ink"
                 onClick={() => setIsOpen(false)}
               >
@@ -88,7 +116,7 @@ export default function Navigation() {
               </Link>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );
