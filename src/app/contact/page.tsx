@@ -1,20 +1,21 @@
 'use client';
 
-import { useState } from 'react';
+declare global {
+  interface Window {
+    Calendly?: {
+      initPopupWidget: (options: { url: string }) => void;
+    };
+  }
+}
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    interest: '',
-    message: '',
-  });
+  const formlessId = "LANT2y6pqAF1";
+  const calendlyUrl = "https://calendly.com/nathalie-salles/new-meeting";
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Form handling will be connected to Formspree or API route
-    console.log('Form submitted:', formData);
-    alert('Thank you for reaching out. I\'ll be in touch soon.');
+  const openCalendly = () => {
+    if (window.Calendly) {
+      window.Calendly.initPopupWidget({ url: calendlyUrl });
+    }
   };
 
   return (
@@ -32,104 +33,43 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Form */}
+      {/* Formless AI Conversation */}
       <section className="px-6 py-16 bg-[--cloud]">
         <div className="max-w-2xl mx-auto">
-          <form onSubmit={handleSubmit} className="space-y-8">
-            {/* Name */}
-            <div>
-              <label htmlFor="name" className="block text-sm text-[--stone] mb-2">
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                required
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-0 py-3 bg-transparent border-b border-[--mist] text-[--ink] focus:border-[--ink] transition-colors"
-                placeholder="Your name"
-              />
-            </div>
-
-            {/* Email */}
-            <div>
-              <label htmlFor="email" className="block text-sm text-[--stone] mb-2">
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                required
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full px-0 py-3 bg-transparent border-b border-[--mist] text-[--ink] focus:border-[--ink] transition-colors"
-                placeholder="your@email.com"
-              />
-            </div>
-
-            {/* Interest */}
-            <div>
-              <label htmlFor="interest" className="block text-sm text-[--stone] mb-2">
-                What brings you here?
-              </label>
-              <select
-                id="interest"
-                required
-                value={formData.interest}
-                onChange={(e) => setFormData({ ...formData, interest: e.target.value })}
-                className="w-full px-0 py-3 bg-transparent border-b border-[--mist] text-[--ink] focus:border-[--ink] transition-colors"
-              >
-                <option value="">Select one...</option>
-                <option value="coaching">Executive Coaching</option>
-                <option value="strategy">AI Strategy Advisory</option>
-                <option value="build">Custom AI Build</option>
-                <option value="latelier">L&apos;atelier (AI HR Team)</option>
-                <option value="other">Something else</option>
-              </select>
-            </div>
-
-            {/* Message */}
-            <div>
-              <label htmlFor="message" className="block text-sm text-[--stone] mb-2">
-                Tell me more
-              </label>
-              <textarea
-                id="message"
-                required
-                rows={5}
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="w-full px-0 py-3 bg-transparent border-b border-[--mist] text-[--ink] focus:border-[--ink] transition-colors resize-none"
-                placeholder="What are you working on? What questions are you wrestling with?"
-              />
-            </div>
-
-            {/* Submit */}
-            <div className="pt-4">
-              <button
-                type="submit"
-                className="px-8 py-4 bg-[--ink] text-white text-sm tracking-wide hover:bg-[--slate] transition-colors"
-              >
-                Send Message
-              </button>
-            </div>
-          </form>
+          <iframe
+            src={`https://formless.ai/c/${formlessId}`}
+            className="w-full border-0 rounded-lg"
+            style={{ height: '650px' }}
+            allow="microphone *"
+          />
         </div>
       </section>
 
-      {/* Alternative */}
+      {/* Alternative Options */}
       <section className="px-6 py-24">
-        <div className="max-w-2xl mx-auto text-center">
-          <p className="text-[--stone] mb-4">
-            Prefer email?
-          </p>
-          <a
-            href="mailto:nathalie@abundantstrategies.ai"
-            className="text-[--ink] border-b border-[--ink] hover:text-[--slate] hover:border-[--slate] transition-colors"
-          >
-            nathalie@abundantstrategies.ai
-          </a>
+        <div className="max-w-2xl mx-auto text-center space-y-8">
+          <div>
+            <p className="text-[--stone] mb-4">
+              Prefer to book directly?
+            </p>
+            <button
+              onClick={openCalendly}
+              className="px-6 py-3 bg-[--ink] text-white text-sm tracking-wide hover:bg-[--slate] transition-colors"
+            >
+              Schedule a Conversation
+            </button>
+          </div>
+          <div className="pt-4 border-t border-[--cloud]">
+            <p className="text-[--stone] mb-4">
+              Or email me directly
+            </p>
+            <a
+              href="mailto:nathalies@abundantstrategies.com"
+              className="text-[--ink] border-b border-[--ink] hover:text-[--slate] hover:border-[--slate] transition-colors"
+            >
+              nathalies@abundantstrategies.com
+            </a>
+          </div>
         </div>
       </section>
     </div>
