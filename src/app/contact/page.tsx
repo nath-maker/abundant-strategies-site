@@ -1,22 +1,8 @@
 'use client';
 
-declare global {
-  interface Window {
-    Calendly?: {
-      initPopupWidget: (options: { url: string }) => void;
-    };
-  }
-}
-
 export default function Contact() {
   const formlessId = "LANT2y6pqAF1";
   const calendlyUrl = "https://calendly.com/nathalie-salles/new-meeting";
-
-  const openCalendly = () => {
-    if (window.Calendly) {
-      window.Calendly.initPopupWidget({ url: calendlyUrl });
-    }
-  };
 
   return (
     <div className="min-h-screen">
@@ -52,12 +38,14 @@ export default function Contact() {
             <p className="text-[--stone] mb-4">
               Prefer to book directly?
             </p>
-            <button
-              onClick={openCalendly}
-              className="px-6 py-3 bg-[--ink] text-white text-sm tracking-wide hover:bg-[--slate] transition-colors"
+            <a
+              href={calendlyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-6 py-3 bg-[--ink] text-white text-sm tracking-wide hover:bg-[--slate] transition-colors"
             >
               Schedule a Conversation
-            </button>
+            </a>
           </div>
           <div className="pt-4 border-t border-[--cloud]">
             <p className="text-[--stone] mb-4">
