@@ -16,7 +16,7 @@ const paths = [
       'You want to build the company.',
       'We translate the human side.'
     ],
-    description: 'You're ahead on the technology. The bottleneck is people. We help technical founders and CTOs build the human infrastructure that matches their technical ambition.',
+    description: "You're ahead on the technology. The bottleneck is people. We help technical founders and CTOs build the human infrastructure that matches their technical ambition.",
     cta: 'See how we work together',
     href: '/work-with-me'
   },
@@ -29,7 +29,7 @@ const paths = [
       'You want to hold your own with AI.',
       'We help you bridge that gap.'
     ],
-    description: 'You're in rooms where AI comes up. You want to lead those conversations, not defer to IT or delegate to your team. We help you build real AI fluency.',
+    description: "You're in rooms where AI comes up. You want to lead those conversations, not defer to IT or delegate to your team. We help you build real AI fluency.",
     cta: 'Build your AI fluency',
     href: '/work-with-me'
   },
@@ -42,7 +42,7 @@ const paths = [
       'You are working on your AI strategy.',
       'We help you plan for humans + AI, together.'
     ],
-    description: 'You have pilots, not strategy. Your whole workforce needs to be AI-ready. We help you build a workforce plan where humans and AI work together.',
+    description: "You have pilots, not strategy. Your whole workforce needs to be AI-ready. We help you build a workforce plan where humans and AI work together.",
     cta: 'Build your AI-ready workforce',
     href: '/work-with-me'
   }
