@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from "next/link";
+import Image from "next/image";
 
 type PathKey = 'technical' | 'people' | 'organizations' | null;
 
@@ -186,9 +187,35 @@ export default function Home() {
                 That combination lets us see what most can&apos;t: the whole system, not just the tools.
               </p>
             </div>
-            {/* Image placeholder */}
-            <div className="aspect-[4/5] bg-[--paper] flex items-center justify-center">
-              <span className="text-sm text-[--mist]">Photo placeholder</span>
+            {/* Image */}
+            <div className="relative aspect-[4/5]">
+              <Image
+                src="/images/pierre-guerin-pyramid.jpg"
+                alt="Architectural perspective - grayscale pyramid structure"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <p className="absolute bottom-2 right-2 text-[10px] text-white/60">
+                Photo by{' '}
+                <a 
+                  href="https://unsplash.com/@pierreguerin?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-white/80"
+                >
+                  Pierre Guerin
+                </a>
+                {' '}on{' '}
+                <a 
+                  href="https://unsplash.com/photos/grayscale-photo-of-pyramid-building-qHxIP8pCx7c?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-white/80"
+                >
+                  Unsplash
+                </a>
+              </p>
             </div>
           </div>
         </div>
