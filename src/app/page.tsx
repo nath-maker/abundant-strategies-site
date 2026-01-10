@@ -197,24 +197,7 @@ export default function Home() {
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
               <p className="absolute bottom-2 right-2 text-[10px] text-white/60">
-                Photo by{' '}
-                <a 
-                  href="https://unsplash.com/@pierreguerin?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline hover:text-white/80"
-                >
-                  Pierre Guerin
-                </a>
-                {' '}on{' '}
-                <a 
-                  href="https://unsplash.com/photos/grayscale-photo-of-pyramid-building-qHxIP8pCx7c?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline hover:text-white/80"
-                >
-                  Unsplash
-                </a>
+                Photo by Pierre Guérin
               </p>
             </div>
           </div>
