@@ -229,6 +229,7 @@ export default function HomepageThree() {
             <span className="text-lg font-light">Disney</span>
             <span className="text-lg font-light">Sony</span>
             <span className="text-lg font-light">Amex</span>
+            <span className="text-lg font-light">Red Bull</span>
           </div>
         </div>
       </section>
