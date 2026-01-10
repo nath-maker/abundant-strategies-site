@@ -74,7 +74,7 @@ export default function HomepageThree() {
         <div className="max-w-[1100px] mx-auto">
           {/* Section Header */}
           <div className="text-center mb-10">
-            <h2 className="font-montserrat text-sm font-semibold tracking-[2px] uppercase text-[#666]">
+            <h2 className="font-montserrat text-lg font-semibold tracking-[2px] uppercase text-[#555]">
               What problems are you trying to solve?
             </h2>
           </div>
