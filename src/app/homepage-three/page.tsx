@@ -75,14 +75,14 @@ export default function HomepageThree() {
       <section className="px-6 py-24 bg-[#fafafa]">
         <div className="max-w-[1100px] mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-8">
-            <h2 className="font-montserrat text-xs font-semibold tracking-[2px] uppercase text-[#999] mb-3">
-              Who I Work With
+          <div className="text-center mb-10">
+            <h2 className="font-montserrat text-sm font-semibold tracking-[2px] uppercase text-[#666]">
+              What problems are you trying to solve?
             </h2>
           </div>
 
           {/* Horizontal Accordion */}
-          <div className="flex flex-col md:flex-row gap-3 min-h-[320px]">
+          <div className="flex flex-col md:flex-row gap-3">
             {paths.map((path) => {
               const isOpen = openPath === path.key;
               
@@ -108,10 +108,10 @@ export default function HomepageThree() {
                   />
                   
                   {/* Main Content */}
-                  <div className="flex-1 p-6 md:p-7 flex flex-col">
+                  <div className="p-5 md:p-6 flex flex-col">
                     {/* Header */}
-                    <div className="flex justify-between items-start mb-5">
-                      <p className="font-montserrat text-[10px] font-semibold tracking-[2px] uppercase text-[#777]">
+                    <div className="flex justify-between items-start mb-4">
+                      <p className="font-montserrat text-xs font-bold tracking-[2px] uppercase text-[#555]">
                         {path.label}
                       </p>
                       <span 
@@ -126,7 +126,7 @@ export default function HomepageThree() {
                     </div>
                     
                     {/* Headlines */}
-                    <div className="flex-1">
+                    <div>
                       {path.headlines.map((line, i) => (
                         <p 
                           key={i}
@@ -143,7 +143,7 @@ export default function HomepageThree() {
                       style={{
                         opacity: isOpen ? 1 : 0,
                         maxHeight: isOpen ? '200px' : '0px',
-                        marginTop: isOpen ? '20px' : '0px'
+                        marginTop: isOpen ? '16px' : '0px'
                       }}
                     >
                       <p className="text-sm text-[#666] leading-relaxed mb-4">
