@@ -190,14 +190,14 @@ export default function Home() {
             {/* Image */}
             <div className="relative aspect-[4/5]">
               <Image
-                src="/images/pierre-guerin-pyramid.jpg"
-                alt="Architectural perspective - grayscale pyramid structure"
+                src="/images/numendil-louvre.jpg"
+                alt="The Louvre pyramid with dramatic clouds"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
               <p className="absolute bottom-2 right-2 text-[10px] text-white/60">
-                Photo by Pierre Guérin
+                Photo by Numendil
               </p>
             </div>
           </div>
