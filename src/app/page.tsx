@@ -16,7 +16,7 @@ const paths = [
       'You want to build the company.',
       'I translate the human side.'
     ],
-    description: 'You are ahead on the technology. The bottleneck is people. We help technical founders and CTOs build the human infrastructure that matches their technical ambition.',
+    description: 'You're ahead on the technology. The bottleneck is people. I help technical founders and CTOs build the human infrastructure that matches their technical ambition.',
     cta: 'See how we work together',
     href: '/work-with-me'
   },
@@ -29,7 +29,7 @@ const paths = [
       'You want to hold your own with AI.',
       'I help you bridge that gap.'
     ],
-    description: 'You are in rooms where AI comes up. You want to lead those conversations, not defer to IT or delegate to your team. We help you build real AI fluency.',
+    description: 'You're in rooms where AI comes up. You want to lead those conversations, not defer to IT or delegate to your team. I help you build real AI fluency.',
     cta: 'Build your AI fluency',
     href: '/work-with-me'
   },
@@ -42,7 +42,7 @@ const paths = [
       'You are working on your AI strategy.',
       'I help you plan for humans + AI, together.'
     ],
-    description: 'You have pilots, not strategy. Your whole workforce needs to be AI-ready. We help you build a workforce plan where humans and AI work together.',
+    description: 'You have pilots, not strategy. Your whole workforce needs to be AI-ready. I help you build a workforce plan where humans and AI work together.',
     cta: 'Build your AI-ready workforce',
     href: '/work-with-me'
   }
@@ -65,7 +65,7 @@ export default function Home() {
             <span className="block mt-2 text-[--slate]">It&apos;s an organization problem.</span>
           </h1>
           <p className="text-xl text-[--stone] leading-relaxed max-w-2xl mb-12">
-            We help you redesign how your people and AI work together, at scale.
+            I help you redesign how your people and AI work together, at scale.
           </p>
         </div>
       </section>
@@ -107,9 +107,9 @@ export default function Home() {
                   />
                   
                   {/* Main Content */}
-                  <div className="p-5 md:p-6 flex flex-col">
+                  <div className="p-4 md:p-5 flex flex-col">
                     {/* Header */}
-                    <div className="flex justify-between items-start mb-4">
+                    <div className="flex justify-between items-start mb-3">
                       <p className="font-montserrat text-xs font-bold tracking-[2px] uppercase text-[#555]">
                         {path.label}
                       </p>
@@ -142,7 +142,7 @@ export default function Home() {
                       style={{
                         opacity: isOpen ? 1 : 0,
                         maxHeight: isOpen ? '200px' : '0px',
-                        marginTop: isOpen ? '16px' : '0px'
+                        marginTop: isOpen ? '12px' : '0px'
                       }}
                     >
                       <p className="text-sm text-[#666] leading-relaxed mb-4">
@@ -252,7 +252,7 @@ export default function Home() {
           </h2>
           <p className="text-white/70 mb-10">
             No pitch. No pressure. Just an honest discussion about
-            what you&apos;re facing and whether we can help.
+            what you&apos;re facing and whether I can help.
           </p>
           <Link
             href="/contact"
