@@ -13,9 +13,9 @@ const paths = [
     headlines: [
       'You build the tech.',
       'You want to build the company.',
-      'I translate the human side.'
+      'We translate the human side.'
     ],
-    description: 'You are ahead on the technology. The bottleneck is people. I help technical founders and CTOs build the human infrastructure that matches their technical ambition.',
+    description: 'You are ahead on the technology. The bottleneck is people. We help technical founders and CTOs build the human infrastructure that matches their technical ambition.',
     cta: 'See how we work together',
     href: '/work-with-me'
   },
@@ -26,9 +26,9 @@ const paths = [
     headlines: [
       'You lead the people.',
       'You want to hold your own with AI.',
-      'I help you bridge that gap.'
+      'We help you bridge that gap.'
     ],
-    description: 'You are in rooms where AI comes up. You want to lead those conversations, not defer to IT or delegate to your team. I help you build real AI fluency.',
+    description: 'You are in rooms where AI comes up. You want to lead those conversations, not defer to IT or delegate to your team. We help you build real AI fluency.',
     cta: 'Build your AI fluency',
     href: '/work-with-me'
   },
@@ -39,9 +39,9 @@ const paths = [
     headlines: [
       'You are navigating the AI shift.',
       'You are working on your AI strategy.',
-      'I help you plan for humans + AI, together.'
+      'We help you plan for humans + AI, together.'
     ],
-    description: 'You have pilots, not strategy. Your whole workforce needs to be AI-ready. I help you build a workforce plan where humans and AI work together.',
+    description: 'You have pilots, not strategy. Your whole workforce needs to be AI-ready. We help you build a workforce plan where humans and AI work together.',
     cta: 'Build your AI-ready workforce',
     href: '/work-with-me'
   }
@@ -60,13 +60,11 @@ export default function HomepageThree() {
       <section className="px-6 py-32 md:py-40">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-[--ink] mb-8 leading-[1.15]">
-            The leadership questions you&apos;re avoiding about AI aren&apos;t technical.
-            <span className="block mt-2 text-[--slate]">They&apos;re human.</span>
+            AI isn&apos;t a tool problem.
+            <span className="block mt-2 text-[--slate]">It&apos;s an organization problem.</span>
           </h1>
           <p className="text-xl text-[--stone] leading-relaxed max-w-2xl mb-12">
-            I help executives and organizations navigate AI transformation
-            by focusing on what the tools can&apos;t solve: leadership, ethics,
-            and the human systems underneath the technical problems.
+            We help you redesign how your people and AI work together, at scale.
           </p>
         </div>
       </section>
@@ -168,23 +166,24 @@ export default function HomepageThree() {
         </div>
       </section>
 
-      {/* The Difference */}
+      {/* Who We Are */}
       <section className="px-6 py-24 bg-[--cloud]">
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-3xl font-light text-[--ink] mb-6">
-                I don&apos;t hand you answers.
+                Who we are
               </h2>
               <p className="text-[--slate] leading-relaxed mb-6">
-                I help you find better questions. When everyone&apos;s asking
-                &ldquo;which AI tool?&rdquo; I ask &ldquo;why are 75% of your
-                employees using AI secretly?&rdquo;
+                We&apos;ve spent 15 years inside organizational complexity. Change management,
+                workforce planning, performance systems. At Meta, Google, NASA, Disney, Sony, Amex.
+              </p>
+              <p className="text-[--slate] leading-relaxed mb-6">
+                We research human-AI collaboration at the PhD level. And we build AI ourselves.
+                Human-AI HR teams that actually work.
               </p>
               <p className="text-[--slate] leading-relaxed">
-                15 years developing leaders at Meta, Google, and Shell.
-                Now building AI systems myself. The combination gives me
-                a perspective most consultants can&apos;t offer.
+                That combination lets us see what most can&apos;t: the whole system, not just the tools.
               </p>
             </div>
             {/* Image placeholder */}
@@ -226,11 +225,10 @@ export default function HomepageThree() {
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 text-[--stone]">
             <span className="text-lg font-light">Meta</span>
             <span className="text-lg font-light">Google</span>
-            <span className="text-lg font-light">Shell</span>
             <span className="text-lg font-light">NASA</span>
-            <span className="text-lg font-light">LinkedIn</span>
-            <span className="text-lg font-light">OpenAI</span>
-            <span className="text-lg font-light">Harvard</span>
+            <span className="text-lg font-light">Disney</span>
+            <span className="text-lg font-light">Sony</span>
+            <span className="text-lg font-light">Amex</span>
           </div>
         </div>
       </section>
@@ -243,7 +241,7 @@ export default function HomepageThree() {
           </h2>
           <p className="text-white/70 mb-10">
             No pitch. No pressure. Just an honest discussion about
-            what you&apos;re facing and whether I can help.
+            what you&apos;re facing and whether we can help.
           </p>
           <Link
             href="/contact"
